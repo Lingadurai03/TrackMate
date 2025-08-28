@@ -5,12 +5,34 @@ module.exports = {
     extend: {
       colors: {
         primary: 'rgb(var(--color-primary) / <alpha-value>)',
-        secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
-        background: 'rgb(var(--color-background) / <alpha-value>)',
-        surface: 'rgb(var(--color-surface) / <alpha-value>)',
-        'text-primary': 'rgb(var(--color-text-primary) / <alpha-value>)',
-        'text-secondary': 'rgb(var(--color-text-secondary) / <alpha-value>)',
-        border: 'rgb(var(--color-border) / <alpha-value>)',
+
+        // Background
+        background: {
+          light: 'rgb(var(--color-background-light) / <alpha-value>)',
+          dark: 'rgb(var(--color-background-dark) / <alpha-value>)',
+        },
+
+        // Surface
+        surface: {
+          light: 'rgb(var(--color-surface-light) / <alpha-value>)',
+          dark: 'rgb(var(--color-surface-dark) / <alpha-value>)',
+        },
+
+        // Text
+        'text-primary': {
+          light: 'rgb(var(--color-text-primary-light) / <alpha-value>)',
+          dark: 'rgb(var(--color-text-primary-dark) / <alpha-value>)',
+        },
+        'text-secondary': {
+          light: 'rgb(var(--color-text-secondary-light) / <alpha-value>)',
+          dark: 'rgb(var(--color-text-secondary-dark) / <alpha-value>)',
+        },
+
+        // Border
+        border: {
+          light: 'rgb(var(--color-border-light) / <alpha-value>)',
+          dark: 'rgb(var(--color-border-dark) / <alpha-value>)',
+        },
       },
     },
   },

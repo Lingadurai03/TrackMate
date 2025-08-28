@@ -4,22 +4,26 @@
 
 @layer base {
   :root {
-    --color-primary: 34 136 150;
-    --color-secondary: 169 197 47;
-    --color-background: 250 250 250;
-    --color-surface: 245 245 245;
-    --color-text-primary: 40 55 57;
-    --color-text-secondary: 107 114 128;
-    --color-border: 229 231 235;
-  }
+    /* Primary (same in light & dark if you want consistency) */
+    --color-primary: 34 136 150; /* #228896 */
 
-  .dark {
-    --color-primary: 34 136 150;
-    --color-secondary: 169 197 47;
-    --color-background: 40 55 57;
-    --color-surface: 28 37 38;
-    --color-text-primary: 245 245 245;
-    --color-text-secondary: 180 180 180;
-    --color-border: 75 85 99;
+    /* Background */
+    --color-background-light: 250 250 250; /* #FAFAFA */
+    --color-background-dark: 28 37 38; /* #1C2526 */
+
+    /* Surface */
+    --color-surface-light: 245 245 245; /* #F5F5F5 */
+    --color-surface-dark: 40 55 57; /* #283739 */
+
+    /* Text */
+    --color-text-primary-light: 40 55 57; /* #283739 */
+    --color-text-primary-dark: 245 245 245; /* #F5F5F5 */
+
+    --color-text-secondary-light: 107 114 128; /* #6B7280 */
+    --color-text-secondary-dark: 180 180 180; /* #B4B4B4 */
+
+    /* Border */
+    --color-border-light: 229 231 235; /* #E5E7EB */
+    --color-border-dark: 75 85 99; /* #4B5563 */
   }
 }
