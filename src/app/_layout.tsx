@@ -1,6 +1,12 @@
-import { Stack } from 'expo-router';
-import '../../global.css'; // important for Tailwind to work
+import '../../global.css';
 
-export default function RootLayout() {
-  return <Stack />;
+import { ThemeProvider } from '@shared/providers';
+import { Stack } from 'expo-router';
+
+export default function AppLayout() {
+  return (
+    <ThemeProvider>
+      <Stack screenOptions={{ headerShown: false }} />
+    </ThemeProvider>
+  );
 }
