@@ -1,7 +1,6 @@
 import { useTheme } from '@shared/providers';
 import {
   Button,
-  Input,
   KeyboardAvoidingWrapper,
   PageWrapper,
   Wrapper,
@@ -21,28 +20,6 @@ export default function Home() {
             `Switch to ${theme} mode`
           </Button>
         </Wrapper>
-        <Input />
-        <Input />
-        <Input />
-        <Input />
-        <Input />
-        <Input isPassword />
-        <Input isPassword />
-        <Input isPassword />
-        <Input isPassword />
-        <Input isPassword />
-        <Input isPassword />
-        <Input isPassword />
-        <Input isPassword />
-        <Input isPassword />
-        <Input isPassword />
-        <Input isPassword />
-        <Input isPassword />
-        <Input isPassword />
-        <Input isPassword />
-        <Input isPassword />
-        <Input isPassword />
-        <Input isPassword />
       </PageWrapper>
     </KeyboardAvoidingWrapper>
   );

@@ -25,17 +25,17 @@ const PageWrapper = ({
   ...props
 }: PageWrapperProps) => {
   return (
-    <SafeAreaView className="flex-1">
+    <SafeAreaView
+      className={cn('bg-background-light dark:bg-background-dark flex-1')}
+    >
       <ScrollView
         contentContainerStyle={[{ flexGrow: 1 }, contentStyle]}
-        className={cn('bg-background-light dark:bg-background-dark', className)}
+        className={cn(className)}
         keyboardShouldPersistTaps="handled"
         bounces={false}
         {...props}
       >
-        <React.Fragment>
-          <View className={cn(contentClassName)}>{children}</View>
-        </React.Fragment>
+        <View className={cn(contentClassName)}>{children}</View>
       </ScrollView>
     </SafeAreaView>
   );
