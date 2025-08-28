@@ -1,17 +1,22 @@
 import { useTheme } from '@shared/providers';
-import { PageContainer } from '@shared/Ui';
-import { Button, Text } from 'react-native';
+import { Button, PageWrapper, Wrapper } from '@shared/Ui';
+import { ThemedText } from '@shared/Ui/ThemedText';
 
 export default function Home() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <PageContainer className={'h-52 flex-1 items-center justify-center '}>
-      <Text className="text-2xl font-bold text-text-primary">
-        🚀 Theme tokens working! (no `dark:` needed)
-      </Text>
+    <PageWrapper
+      contentStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+      className="p-4"
+    >
+      <Wrapper>
+        <ThemedText>🚀 Theme tokens working! (no `dark:` gg)</ThemedText>
 
-      <Button title={`Switch to ${theme} mode`} onPress={toggleTheme} />
-    </PageContainer>
+        <Button variant="outline" onPress={toggleTheme}>
+          `Switch to ${theme} mode`
+        </Button>
+      </Wrapper>
+    </PageWrapper>
   );
 }

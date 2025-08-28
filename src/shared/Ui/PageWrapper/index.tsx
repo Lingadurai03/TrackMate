@@ -1,24 +1,42 @@
+import { cn } from '@shared/lib';
+import { ClassValue } from 'clsx';
 import React from 'react';
-import { View, ViewProps } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleProp,
+  ViewProps,
+  ViewStyle,
+} from 'react-native';
 
-type PageContainerProps = ViewProps & {
+interface PageWrapperProps extends Omit<ViewProps, 'className'> {
   children?: React.ReactNode;
-  className?: string;
-};
+  className?: ClassValue;
+  contentStyle?: StyleProp<ViewStyle>;
+}
 
-const PageContainer = ({
+const PageWrapper = ({
   children,
   className,
-  ...rest
-}: PageContainerProps) => {
+  contentStyle,
+  ...props
+}: PageWrapperProps) => {
   return (
-    <View
-      className={` bg-primary dark:bg-secondary ${className || ''}`}
-      {...rest}
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
-      {children}
-    </View>
+      <ScrollView
+        contentContainerStyle={[{ flexGrow: 1 }, contentStyle]}
+        className={cn('bg-background-light dark:bg-background-dark', className)}
+        keyboardShouldPersistTaps="handled"
+        {...props}
+      >
+        {children}
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 
-export default PageContainer;
+export default PageWrapper;
