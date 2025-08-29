@@ -26,7 +26,7 @@ const PageWrapper = ({
 }: PageWrapperProps) => {
   return (
     <SafeAreaView
-      className={cn('bg-background-light dark:bg-background-dark flex-1')}
+      className={cn('flex-1 bg-background-light dark:bg-background-dark')}
     >
       <ScrollView
         contentContainerStyle={[{ flexGrow: 1 }, contentStyle]}

@@ -1,25 +1,20 @@
-import { useTheme } from '@shared/providers';
-import {
-  Button,
-  KeyboardAvoidingWrapper,
-  PageWrapper,
-  Wrapper,
-} from '@shared/Ui';
-import { ThemedText } from '@shared/Ui/ThemedText';
+import { LoginForm } from '@features/auth/ui';
+import { KeyboardAvoidingWrapper, PageWrapper, ThemedText } from '@shared/Ui';
+import { View } from 'react-native';
 
 export default function Home() {
-  const { theme, toggleTheme } = useTheme();
-
   return (
     <KeyboardAvoidingWrapper>
-      <PageWrapper>
-        <Wrapper>
-          <ThemedText>🚀 Theme tokens working! (no `dark:` gg)</ThemedText>
-
-          <Button variant="outline" onPress={toggleTheme}>
-            `Switch to ${theme} mode`
-          </Button>
-        </Wrapper>
+      <PageWrapper className={'px-6'}>
+        <>
+          <View className="flex gap-2 pt-10">
+            <ThemedText variant="title">Welcome to Pro Fitness!</ThemedText>
+            <ThemedText variant="body">
+              Hello there, sign in to continue!
+            </ThemedText>
+          </View>
+          <LoginForm />
+        </>
       </PageWrapper>
     </KeyboardAvoidingWrapper>
   );

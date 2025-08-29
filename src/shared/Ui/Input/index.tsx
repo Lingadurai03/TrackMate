@@ -29,7 +29,7 @@ const Input = ({
   return (
     <View className="mb-4 w-full">
       {label && (
-        <Text className="text-text-primary-light dark:text-text-primary-dark mb-1 font-medium">
+        <Text className="mb-1 font-medium text-text-primary-light dark:text-text-primary-dark">
           {label}
         </Text>
       )}
@@ -38,7 +38,7 @@ const Input = ({
         <TextInput
           secureTextEntry={isPassword && !showPassword}
           className={cn(
-            'border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark text-text-primary-light dark:text-text-primary-dark w-full rounded-md border px-4 py-3',
+            'w-full rounded-md border border-border-light bg-surface-light px-4 py-3 text-text-primary-light dark:border-border-dark dark:bg-surface-dark dark:text-text-primary-dark',
             error ? 'border-red-500' : '',
             className,
           )}

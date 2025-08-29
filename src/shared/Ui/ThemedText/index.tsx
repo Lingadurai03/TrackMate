@@ -9,7 +9,7 @@ interface ThemedTextProps extends Omit<TextProps, 'className'> {
   children: React.ReactNode;
 }
 
-export const ThemedText = ({
+const ThemedText = ({
   variant = 'body',
   className,
   children,
@@ -35,3 +35,5 @@ export const ThemedText = ({
     </Text>
   );
 };
+
+export default ThemedText;
