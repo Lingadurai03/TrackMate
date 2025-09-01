@@ -17,6 +17,7 @@ function* loginSaga(
     );
     yield put(authActions.loginSuccess(userCred.user));
   } catch (err: any) {
+    console.log(err);
     yield put(authActions.loginFailure(err.message));
   }
 }
@@ -49,8 +50,8 @@ function* forgotPasswordSaga(
   }
 }
 
-export function* authSaga(): Generator {
-  yield takeLatest(authActions.loginRequest.type, loginSaga);
-  yield takeLatest(authActions.registerRequest.type, registerSaga);
-  yield takeLatest(authActions.forgotPasswordRequest.type, forgotPasswordSaga);
-}
+export const authSaga = [
+  takeLatest(authActions.loginRequest, loginSaga),
+  takeLatest(authActions.registerRequest, registerSaga),
+  takeLatest(authActions.forgotPasswordRequest, forgotPasswordSaga),
+];

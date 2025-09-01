@@ -18,7 +18,6 @@ function LoginForm() {
   const dispatch = useDispatch();
 
   const onSubmit = (data: LoginFormValues) => {
-    console.log(data);
     dispatch(authActions.loginRequest(data));
   };
 
@@ -41,7 +40,7 @@ function LoginForm() {
         rules={{ required: 'Password is required' }}
       />
 
-      <Button onPress={() => onSubmit({ email: '', password: 'pass' })}>
+      <Button size="lg" onPress={handleSubmit(onSubmit)}>
         Login
       </Button>
     </View>

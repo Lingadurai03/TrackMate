@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { User } from 'firebase/auth';
 
+import { AUTH_KEY } from '../constant';
+
 interface AuthState {
   user: User | null;
   loading: boolean;
@@ -14,7 +16,7 @@ const initialState: AuthState = {
 };
 
 const authSlice = createSlice({
-  name: 'auth',
+  name: AUTH_KEY,
   initialState,
   reducers: {
     loginRequest: (

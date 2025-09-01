@@ -1,22 +1,27 @@
+import { AUTH_KEY } from '@features/auth/constant';
 import { authReducer } from '@features/auth/model';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 
-import { rootSaga } from './rootSaga';
+import rootSaga from './saga';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const rootReducer = combineReducers({
-  auth: authReducer,
+const reducers = combineReducers({
+  [AUTH_KEY]: authReducer,
 });
 
-export const store = configureStore({
-  reducer: rootReducer,
+const store = configureStore({
+  reducer: reducers,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware),
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [],
+      },
+    }).concat(sagaMiddleware),
 });
-
 sagaMiddleware.run(rootSaga);
 
+export default store;
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;

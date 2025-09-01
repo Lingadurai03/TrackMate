@@ -20,7 +20,8 @@
       "@features/*": ["src/features/*"],
       "@entities/*": ["src/entities/*"],
       "@processes/*": ["src/processes/*"],
-      "@shared/*": ["src/shared/*"]
+      "@shared/*": ["src/shared/*"],
+      "@store/*": ["src/store/*"]
     }
   },
   "include": [
