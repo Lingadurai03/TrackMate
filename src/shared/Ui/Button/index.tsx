@@ -49,7 +49,7 @@ const Button = ({
     <Pressable
       className={cn(
         baseStyles,
-        sizes[size], // ✅ applied size
+        sizes[size],
         variants[variant],
         (disabled || loading) && 'opacity-50',
         className,

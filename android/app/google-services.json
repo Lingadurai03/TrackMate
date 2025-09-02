@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "448736626996",
+    "project_id": "track-28167",
+    "storage_bucket": "track-28167.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448736626996:android:8fb49b0e3ac3684295bd61",
+        "android_client_info": {
+          "package_name": "com.lingadurai.trackmate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448736626996-jqkmv7iqs2epnin2o4nmtsald0euqgmt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD183uSQZAVevkuNqUic9JM_kr91LUkt0M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448736626996-jqkmv7iqs2epnin2o4nmtsald0euqgmt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -35,7 +35,7 @@ const PageWrapper = ({
         bounces={false}
         {...props}
       >
-        <View className={cn(contentClassName)}>{children}</View>
+        <View className={cn('flex-1 pb-4', contentClassName)}>{children}</View>
       </ScrollView>
     </SafeAreaView>
   );

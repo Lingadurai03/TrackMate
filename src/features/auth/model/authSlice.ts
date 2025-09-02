@@ -2,64 +2,56 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { User } from 'firebase/auth';
 
 import { AUTH_KEY } from '../constant';
-
-interface AuthState {
-  user: User | null;
-  loading: boolean;
-  error: string | null;
-}
+import { AuthState } from './type';
 
 const initialState: AuthState = {
   user: null,
   loading: false,
   error: null,
+  verificationId: null,
 };
 
 const authSlice = createSlice({
   name: AUTH_KEY,
   initialState,
   reducers: {
-    loginRequest: (
-      state,
-      _action: PayloadAction<{ email: string; password: string }>,
-    ) => {
+    // -------- Phone auth --------
+    sendOtpRequest: (state, _action: PayloadAction<string>) => {
       state.loading = true;
     },
-    loginSuccess: (state, action: PayloadAction<User>) => {
+    sendOtpSuccess: (state, { payload }: PayloadAction<string>) => {
       state.loading = false;
-      state.user = action.payload;
-      state.error = null;
+      state.verificationId = payload;
     },
-    loginFailure: (state, action: PayloadAction<string>) => {
+    sendOtpFailure: (state, action: PayloadAction<string>) => {
       state.loading = false;
       state.error = action.payload;
     },
 
-    registerRequest: (
+    verifyOtpRequest: (
       state,
-      _action: PayloadAction<{ email: string; password: string }>,
+      _action: PayloadAction<{ verificationId: string; code: string }>,
     ) => {
       state.loading = true;
     },
-    registerSuccess: (state, action: PayloadAction<User>) => {
+    verifyOtpSuccess: (state, action: PayloadAction<User>) => {
       state.loading = false;
       state.user = action.payload;
     },
-    registerFailure: (state, action: PayloadAction<string>) => {
+    verifyOtpFailure: (state, action: PayloadAction<string>) => {
       state.loading = false;
       state.error = action.payload;
     },
 
-    forgotPasswordRequest: (
-      state,
-      _action: PayloadAction<{ email: string }>,
-    ) => {
+    // -------- Google auth --------
+    googleLoginRequest: (state) => {
       state.loading = true;
     },
-    forgotPasswordSuccess: (state) => {
+    googleLoginSuccess: (state, action: PayloadAction<User>) => {
       state.loading = false;
+      state.user = action.payload;
     },
-    forgotPasswordFailure: (state, action: PayloadAction<string>) => {
+    googleLoginFailure: (state, action: PayloadAction<string>) => {
       state.loading = false;
       state.error = action.payload;
     },

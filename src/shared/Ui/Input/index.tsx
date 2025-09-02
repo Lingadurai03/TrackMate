@@ -29,7 +29,7 @@ const Input = ({
   return (
     <View className="mb-4 w-full">
       {label && (
-        <Text className="mb-1 font-medium text-text-primary-light dark:text-text-primary-dark">
+        <Text className="mb-1 font-medium text-text-secondary-light dark:text-text-secondary-dark">
           {label}
         </Text>
       )}

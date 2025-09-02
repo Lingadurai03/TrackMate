@@ -5,46 +5,37 @@ import { useDispatch } from 'react-redux';
 
 import { authActions } from '../model';
 
-type LoginFormValues = {
-  email: string;
-  password: string;
+type PhoneFormValues = {
+  phone: string;
 };
 
-function LoginForm() {
-  const { control, handleSubmit } = useForm<LoginFormValues>({
-    defaultValues: { email: '', password: '' },
+function PhoneLoginForm() {
+  const { control, handleSubmit } = useForm<PhoneFormValues>({
+    defaultValues: { phone: '' },
   });
 
   const dispatch = useDispatch();
 
-  const onSubmit = (data: LoginFormValues) => {
-    dispatch(authActions.loginRequest(data));
+  const onSubmit = (data: PhoneFormValues) => {
+    // dispatch OTP request saga
+    dispatch(authActions.sendOtpRequest(data.phone));
   };
 
   return (
-    <View className="mt-10">
-      <FormInput<LoginFormValues>
-        name="email"
+    <View className="mt-8 gap-2">
+      <FormInput<PhoneFormValues>
+        name="phone"
         control={control}
-        label="Email"
-        placeholder="Enter email"
-        rules={{ required: 'Email is required' }}
+        label="Phone Number"
+        placeholder="+91 98765 43210"
+        rules={{ required: 'Phone number is required' }}
       />
 
-      <FormInput<LoginFormValues>
-        name="password"
-        control={control}
-        label="Password"
-        placeholder="Enter password"
-        isPassword
-        rules={{ required: 'Password is required' }}
-      />
-
-      <Button size="lg" onPress={handleSubmit(onSubmit)}>
-        Login
+      <Button size="lg" className="mt-6" onPress={handleSubmit(onSubmit)}>
+        Continue
       </Button>
     </View>
   );
 }
 
-export default LoginForm;
+export default PhoneLoginForm;
